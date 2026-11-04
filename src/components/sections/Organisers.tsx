@@ -12,7 +12,7 @@ type Committee = {
   lead?: Lead;
   members?: readonly string[];
   subgroups?: readonly Subgroup[];
-  responsibilities?: string;
+
 };
 type Affiliation = { position: string; institution: string };
 
@@ -208,10 +208,7 @@ export function Organisers() {
                       ))}
                     </ul>
                   )}
-                  {c.responsibilities && (
-                    <p className={styles.responsibilities}>{c.responsibilities}</p>
-                  )}
-                </>
+</>
               )}
             </li>
           ))}

@@ -78,64 +78,55 @@
         "id": 1,
         "name": "Website and Digital",
         "lead": { "name": "Sampurna Dan" },
-        "members": ["Soujash Banerjee", "Rishikant Mallick", "Subhadeep Ghosh"],
-        "responsibilities": "Responsible for developing and maintaining the RuralConnect 2026 event website, designing posters and digital/physical banners, speaker-specific posters, invitation letters, integrating registration forms, managing online promotional materials, publishing approved program updates, supporting event-day digital communication, and showcasing competition results and event highlights."
+        "members": ["Soujash Banerjee", "Rishikant Mallick", "Subhadeep Ghosh"]
       },
       {
         "id": 2,
         "name": "Venue and Logistics",
-        "lead": { "name": "Prolay Mallik" },
-        "members": ["Amit Mourya", "Shubham Dey", "Shilpi Rani", "Rupa Deka"],
-        "responsibilities": "Responsible for venue booking and setup, decoration, bouquet, seating arrangements, stage and branding installation, audio-visual infrastructure, Wi-Fi and electrical facilities, ideathon workspaces, technical support, and smooth on-ground operations during RuralConnect 2026."
+        "lead": { "name": "Prolay Mallick" },
+        "members": ["Amit Mourya", "Shubham Dey", "Shilpi Rani", "Rupa Deka"]
       },
       {
         "id": 3,
         "name": "Guest and Student Hospitality",
         "lead": { "name": "Arindom Aich" },
-        "members": ["Ashwini Roshan", "Abhijit Saha", "Tanupriya Ameta", "Sampurna Dan"],
-        "responsibilities": "Responsible for invited guest reception and protocol, accommodation and transportation coordination, student assistance, welcome arrangements, and ensuring a comfortable experience for all participants during RuralConnect 2026."
+        "members": ["Ashwini Roshan", "Abhijit Saha", "Tanupriya Ameta", "Sampurna Dan"]
       },
       {
         "id": 4,
         "name": "Ideathon",
         "lead": { "name": "Jishan Aich" },
-        "members": ["Ashwini Roshan", "Singarapu Pawan Kumar", "Amit Mourya"],
-        "responsibilities": "Responsible for designing the ideathon challenges and rules, screening applications, shortlisting 20 teams, coordinating mentoring and jury evaluation, on-the-spot event organization, determining winners, and documenting competition outcomes."
+        "members": ["Ashwini Roshan", "Singarapu Pawan Kumar", "Amit Mourya"]
       },
       {
         "id": 5,
         "name": "Food",
         "lead": { "name": "Aparesh Mahapatra" },
-        "members": ["Diotima Nag", "Shubham Kumar", "Indumouli Nandy"],
-        "responsibilities": "Responsible for menu planning, catering vendor coordination, food and refreshment arrangements, drinking water, meal-count management, food distribution, hygiene, quality control, and catering within the budget throughout RuralConnect 2026."
+        "members": ["Diotima Nag", "Shubham Kumar", "Indumouli Nandy"]
       },
       {
         "id": 6,
         "name": "Speakers, Tutorials and Program",
         "lead": { "name": "Diotima Nag" },
-        "members": ["Shilpi Rani", "Rupa Deka", "Paromita Nag"],
-        "responsibilities": "Responsible for identifying and confirming invited speakers, organizing AI-IoT and communication technology tutorial talks, preparing the complete two-day program, assigning session chairs and moderators, coordinating speaker presentations, and ensuring smooth and timely execution of all technical sessions during RuralConnect 2026."
+        "members": ["Shilpi Rani", "Rupa Deka", "Paromita Nag"]
       },
       {
         "id": 7,
         "name": "Event Registration Management",
         "lead": { "name": "Rukhshar Khatun" },
-        "members": ["Jahir Alam", "Abhijit Saha", "Subhadeep Ghosh"],
-        "responsibilities": "Responsible for managing ideathon and workshop registrations, on-site registrations, maintaining participant databases, coordinating shortlisted-team confirmations, handling participant communication, organizing on-site registration and attendance, preparing verified certificate records, and ensuring smooth registration operations throughout RuralConnect 2026."
+        "members": ["Jahir Alam", "Abhijit Saha", "Subhadeep Ghosh"]
       },
       {
         "id": 8,
         "name": "Award, Jury and Documentation",
         "lead": { "name": "Soujash Banerjee" },
-        "members": ["Rupa Deka", "Tanupriya Ameta", "Saharsh Gupta"],
-        "responsibilities": "Responsible for jury coordination and scoring administration, result compilation, prizes and certificates, award ceremony management, and preparation of the final RuralConnect 2026 event report for institutional and IEEE ComSoc requirements."
+        "members": ["Rupa Deka", "Tanupriya Ameta", "Saharsh Gupta"]
       },
       {
         "id": 9,
         "name": "Photography and Videography",
         "lead": { "name": "Shubham Kumar" },
-        "members": ["Jahir Alam", "Rishikant Mallik"],
-        "responsibilities": "Responsible for capturing high-quality photographs and videos of all event activities, managing live streaming of key sessions on YouTube, recording lectures and tutorials, and organizing audiovisual content for post-event highlights and archival documentation."
+        "members": ["Jahir Alam", "Rishikant Mallick"]
       }
     ]
   }
