@@ -56,9 +56,18 @@ export function Ideathon() {
               ))}
             </ul>
             <p className={styles.note}>
-              {deadline.status === "confirmed"
-                ? `Applications close on ${formatDayHeading(deadline.value)}.`
-                : "The application deadline is published with the application form."}
+              {deadline.status === "confirmed" ? (
+                deadline.previousValue ? (
+                  <>
+                    <s>Applications close on {formatDayHeading(deadline.previousValue)}.</s>
+                    {" "}Deadline extended to 5th November, 2026 [Firm].
+                  </>
+                ) : (
+                  `Applications close on ${formatDayHeading(deadline.value)}.`
+                )
+              ) : (
+                "The application deadline is published with the application form."
+              )}
             </p>
           </div>
           <div data-reveal>

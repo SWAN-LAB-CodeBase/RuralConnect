@@ -16,27 +16,35 @@
   margin: 0 auto;
 }
 
-.brand {
+.brandLogos {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-3);
-  font-size: var(--text-xl);
-  font-weight: 600;
-  letter-spacing: var(--tracking-heading);
+  gap: var(--space-5);
 }
 
-.brand svg {
-  transition: transform var(--duration-spring) var(--ease-spring);
+.brandLogos a {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  transition: opacity var(--duration-fast) var(--ease-out);
 }
 
-.brand:hover svg {
-  transform: rotate(180deg);
+.brandLogos a:hover {
+  opacity: 0.75;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .brand:hover svg {
-    transform: none;
-  }
+.footerLogo {
+  display: block;
+  height: 67px;
+  width: auto;
+  max-width: 216px;
+  object-fit: contain;
+}
+
+.footerLogoLg {
+  height: 80px;
+  max-width: 259px;
 }
 
 .theme {

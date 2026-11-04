@@ -45,18 +45,77 @@
   box-shadow: var(--glass-highlight), var(--shadow-md);
 }
 
-.brand {
+/* ── Event switcher (logo-based) ────────────────────────── */
+
+.eventSwitcher {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-right: auto;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.eventTab {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  min-height: 2.75rem;
-  margin-right: auto;
-  font-weight: 600;
-  font-size: var(--text-sm);
-  letter-spacing: -0.01em;
+  border-radius: var(--radius-md);
+  padding: 0.25rem 0.5rem;
   text-decoration: none;
-  white-space: nowrap;
-  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  opacity: 0.45;
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.eventTab[data-active] {
+  opacity: 1;
+  border-color: color-mix(in srgb, var(--teal-700) 25%, transparent);
+  background: color-mix(in srgb, var(--teal-700) 8%, transparent);
+  animation: logo-bounce 5s ease-in-out infinite;
+}
+
+.eventTab:not([data-active]):hover {
+  opacity: 0.75;
+  background: color-mix(in srgb, var(--color-ink) 6%, transparent);
+}
+
+.tabLogo {
+  display: block;
+  height: 41px;
+  width: auto;
+  max-width: 168px;
+  object-fit: contain;
+}
+
+.tabLogoLg {
+  height: 49px;
+  max-width: 202px;
+}
+
+@keyframes logo-bounce {
+  0%, 8%, 100% { transform: translateY(0); }
+  2%            { transform: translateY(-6px); }
+  5%            { transform: translateY(-2px); }
+  6.5%          { transform: translateY(-4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eventTab[data-active] {
+    animation: none;
+  }
+}
+
+@media (max-width: 24em) {
+  .eventSwitcher {
+    gap: var(--space-2);
+  }
+  .tabLogo {
+    height: 26px;
+  }
 }
 
 /* ── Desktop navigation ─────────────────────────────────── */

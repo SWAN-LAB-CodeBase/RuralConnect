@@ -108,7 +108,8 @@ export const event: EventConfig = {
     recognition: "The top three teams are recognised at the closing session.",
     applicationDeadline: {
       status: "confirmed",
-      value: "2026-11-02",
+      value: "2026-11-05",
+      previousValue: "2026-11-02",
     },
     shortlistAnnouncement: {
       status: "pending",

@@ -7,7 +7,8 @@
  */
 
 export type Confirmable<T> =
-  { status: "confirmed"; value: T } | { status: "pending"; internalNote: string };
+  | { status: "confirmed"; value: T; previousValue?: T }
+  | { status: "pending"; internalNote: string };
 
 /** An ISO calendar date, e.g. "2026-11-14". */
 export type IsoDate = `${number}-${number}-${number}`;

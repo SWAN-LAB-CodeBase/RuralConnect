@@ -1,15 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { BrandMark } from "@/components/brand/BrandMark";
 import type { NavItem } from "@/content/types";
 import styles from "./SiteHeader.module.css";
 
 interface SiteHeaderProps {
   nav: readonly NavItem[];
+  edition?: "ruralconnect" | "comsoft";
 }
 
-export function SiteHeader({ nav }: SiteHeaderProps) {
+export function SiteHeader({ nav, edition = "ruralconnect" }: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -78,14 +79,38 @@ export function SiteHeader({ nav }: SiteHeaderProps) {
         data-open={open || undefined}
       >
         <div className={styles.bar}>
-          <a
-            href="#top"
-            className={styles.brand}
-            aria-label="RuralConnect — home"
-            onClick={() => setOpen(false)}
-          >
-            <BrandMark size={41} />
-          </a>
+          <div className={styles.eventSwitcher} aria-label="Event switcher">
+            <a
+              href={edition === "ruralconnect" ? "#top" : "/"}
+              className={styles.eventTab}
+              data-active={edition === "ruralconnect" || undefined}
+              aria-label="RuralConnect 2026"
+              onClick={edition === "ruralconnect" ? () => setOpen(false) : undefined}
+            >
+              <Image
+                src="/images/ruralconnect-logo.png"
+                alt="RuralConnect 2026"
+                height={288}
+                width={865}
+                priority
+                className={styles.tabLogo}
+              />
+            </a>
+            <a
+              href="/comsoft-nexus"
+              className={styles.eventTab}
+              data-active={edition === "comsoft" || undefined}
+              aria-label="ComSoft Nexus 2026"
+            >
+              <Image
+                src="/images/comsoft-nexus-logo.png"
+                alt="ComSoft Nexus 2026"
+                height={724}
+                width={2171}
+                className={`${styles.tabLogo} ${styles.tabLogoLg}`}
+              />
+            </a>
+          </div>
 
           <nav aria-label="Primary" className={styles.desktopNav}>
             <ul>

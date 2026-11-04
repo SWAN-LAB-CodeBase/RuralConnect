@@ -1,8 +1,8 @@
+import Image from "next/image";
 import { event } from "@/content/event";
 import { formatDateRange } from "@/lib/format";
 import { resolveRegistration } from "@/lib/registration";
 import { siteConfig } from "@/lib/site-config";
-import { BrandMark } from "@/components/brand/BrandMark";
 import type { NavItem } from "@/content/types";
 import styles from "./SiteFooter.module.css";
 import { stagger } from "@/lib/stagger";
@@ -23,9 +23,26 @@ export function SiteFooter({ nav }: { nav: readonly NavItem[] }) {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.identity} data-reveal>
-          <p className={styles.brand} aria-label="RuralConnect 2026">
-            <BrandMark size={72} />
-          </p>
+          <div className={styles.brandLogos}>
+            <a href="/" aria-label="RuralConnect 2026">
+              <Image
+                src="/images/ruralconnect-logo.png"
+                alt="RuralConnect 2026"
+                height={288}
+                width={865}
+                className={styles.footerLogo}
+              />
+            </a>
+            <a href="/comsoft-nexus" aria-label="ComSoft Nexus 2026">
+              <Image
+                src="/images/comsoft-nexus-logo.png"
+                alt="ComSoft Nexus 2026"
+                height={724}
+                width={2171}
+                className={`${styles.footerLogo} ${styles.footerLogoLg}`}
+              />
+            </a>
+          </div>
           <p className={styles.theme}>{identity.theme}</p>
           <p className={styles.when}>
             {dates.status === "confirmed" ? formatDateRange(dates.value) : "Dates to be announced"}

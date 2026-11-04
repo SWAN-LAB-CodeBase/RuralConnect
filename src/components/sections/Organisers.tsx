@@ -12,6 +12,7 @@ type Committee = {
   lead?: Lead;
   members?: readonly string[];
   subgroups?: readonly Subgroup[];
+  responsibilities?: string;
 };
 type Affiliation = { position: string; institution: string };
 
@@ -47,46 +48,67 @@ export function Organisers() {
           tone="indigo"
         />
         <ul className={styles.people} aria-label="Organizers">
-          {organizers.map((person, i) => (
-            <li
-              key={person.name}
-              className={styles.person}
-              data-tone="indigo"
-              data-reveal="scale"
-              style={stagger(i)}
-            >
-              {person.photo ? (
-                <span className={styles.portrait} data-tone="indigo">
-                  <Image
-                    src={person.photo}
-                    alt={`Portrait of ${person.name}`}
-                    fill
-                    sizes="3.5rem"
-                    className={styles.portraitImage}
-                  />
-                </span>
-              ) : (
-                <span className={styles.monogram} aria-hidden="true" data-tone="indigo">
-                  {initials(person.name)}
-                </span>
-              )}
-              <p className={styles.role}>{person.role}</p>
-              <p className={styles.name}>{person.name}</p>
-              {person.affiliations && person.affiliations.length > 0 && (
-                <ul className={styles.affiliations} aria-label={`Affiliations for ${person.name}`}>
-                  {person.affiliations.map((a, idx) => (
-                    <li key={`${a.institution}-${idx}`} className={styles.affiliation}>
-                      <span className={styles.position}>{a.position}</span>
-                      <span className={styles.institution}>{a.institution}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {person.memberships && (
-                <p className={styles.memberships}>{person.memberships}</p>
-              )}
-            </li>
-          ))}
+          {organizers.map((person, i) => {
+            const isPatron = i === 0;
+            return (
+              <li
+                key={person.name}
+                className={styles.person}
+                data-tone="indigo"
+                data-patron={isPatron ? "true" : undefined}
+                data-reveal="scale"
+                style={stagger(i)}
+              >
+                {isPatron && (
+                  <p className={styles.patronBadge} aria-hidden="true">
+                    <span className={styles.patronBadgeDot} />
+                    Patron
+                  </p>
+                )}
+                {person.photo ? (
+                  <span className={styles.portrait} data-tone="indigo">
+                    <Image
+                      src={person.photo}
+                      alt={`Portrait of ${person.name}`}
+                      fill
+                      sizes={isPatron ? "12rem" : "6rem"}
+                      className={styles.portraitImage}
+                    />
+                  </span>
+                ) : (
+                  <span className={styles.monogram} aria-hidden="true" data-tone="indigo">
+                    {initials(person.name)}
+                  </span>
+                )}
+                <p className={styles.role}>{person.role}</p>
+                {isPatron ? (
+                  <a
+                    href="https://www.swanlab.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.nameLink}
+                  >
+                    {person.name}
+                  </a>
+                ) : (
+                  <p className={styles.name}>{person.name}</p>
+                )}
+                {person.affiliations && person.affiliations.length > 0 && (
+                  <ul className={styles.affiliations} aria-label={`Affiliations for ${person.name}`}>
+                    {person.affiliations.map((a, idx) => (
+                      <li key={`${a.institution}-${idx}`} className={styles.affiliation}>
+                        <span className={styles.position}>{a.position}</span>
+                        <span className={styles.institution}>{a.institution}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {person.memberships && (
+                  <p className={styles.memberships}>{person.memberships}</p>
+                )}
+              </li>
+            );
+          })}
         </ul>
 
         {/* ── Event Coordinators ────────────────────────── */}
@@ -111,7 +133,7 @@ export function Organisers() {
                     src={person.photo}
                     alt={`Portrait of ${person.name}`}
                     fill
-                    sizes="3.5rem"
+                    sizes="6rem"
                     className={styles.portraitImage}
                   />
                 </span>
@@ -185,6 +207,9 @@ export function Organisers() {
                         </li>
                       ))}
                     </ul>
+                  )}
+                  {c.responsibilities && (
+                    <p className={styles.responsibilities}>{c.responsibilities}</p>
                   )}
                 </>
               )}

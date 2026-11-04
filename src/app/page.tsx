@@ -20,9 +20,9 @@ import { SiteFooter } from "@/components/footer/SiteFooter";
 export default function Home() {
   return (
     <>
-      <SiteHeader nav={navigation} />
+      <SiteHeader nav={navigation} edition="ruralconnect" />
       <main id="main" tabIndex={-1}>
-        <Hero />
+        <Hero edition="ruralconnect" />
         <ChallengeTopics />
         <Overview />
         <PhotoBand />

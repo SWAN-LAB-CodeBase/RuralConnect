@@ -55,6 +55,13 @@ export function CountdownTimer({ targetDate, className }: Props) {
         <span className={styles.sep} />
         <Unit value={seconds} unit="Seconds" />
       </div>
+      <div className={styles.extensionWrap}>
+        <p className={styles.originalDeadline}><s>Deadline: 2nd November</s></p>
+        <p className={styles.notice}>
+          Deadline extended to 5th Nov{" "}
+          <span className={styles.stamp}>Firm</span>
+        </p>
+      </div>
     </div>
   );
 }

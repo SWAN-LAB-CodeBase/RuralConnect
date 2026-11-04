@@ -139,8 +139,8 @@
   --person-primary: var(--blue-700);
   --person-soft: var(--blue-100);
   position: relative;
-  padding: var(--space-5) var(--space-5) var(--space-5) 5.5rem;
-  min-height: 5.5rem;
+  padding: var(--space-5) var(--space-5) var(--space-5) 8rem;
+  min-height: 8rem;
   border-radius: var(--radius-md);
   background:
     linear-gradient(135deg, rgb(255 255 255 / 0.88) 0%, rgb(255 255 255 / 0.72) 100%);
@@ -171,12 +171,11 @@
 .monogram {
   position: absolute;
   left: var(--space-4);
-  top: 50%;
-  transform: translateY(-50%);
+  top: var(--space-5);
   display: inline-grid;
   place-items: center;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   background: linear-gradient(
     135deg,
@@ -192,17 +191,16 @@
     inset 0 1px 0 rgb(255 255 255 / 0.35);
 }
 
-.monogram[data-tone="indigo"] { font-size: 1rem; }
-.monogram[data-tone="teal"] { font-size: 1rem; }
+.monogram[data-tone="indigo"] { font-size: 1.6rem; }
+.monogram[data-tone="teal"] { font-size: 1.6rem; }
 
 .portrait {
   --person-primary: var(--blue-700);
   position: absolute;
   left: var(--space-4);
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3.5rem;
-  height: 3.5rem;
+  top: var(--space-5);
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   overflow: hidden;
   background: color-mix(in srgb, var(--person-primary) 10%, white);
@@ -229,6 +227,30 @@
   line-height: 1.15;
   color: var(--color-ink);
   margin: 0;
+}
+
+.nameLink {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  letter-spacing: var(--tracking-heading);
+  line-height: 1.15;
+  color: var(--color-ink);
+  margin: 0;
+  text-decoration: none;
+  background-image: linear-gradient(
+    currentColor,
+    currentColor
+  );
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  transition: background-size 0.25s var(--ease-out), color 0.2s var(--ease-out);
+}
+
+.nameLink:hover {
+  color: var(--blue-700);
+  background-size: 100% 2px;
 }
 
 .role {
@@ -282,6 +304,82 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--person-primary);
+}
+
+/* ── Patron card (Organizing Chair, full-width) ──────── */
+
+.person[data-patron="true"] {
+  grid-column: 1 / -1;
+  padding: var(--space-6) var(--space-6) var(--space-6) 14rem;
+  min-height: 12rem;
+  background:
+    radial-gradient(60% 100% at 0% 0%, color-mix(in srgb, var(--blue-700) 12%, transparent) 0%, transparent 70%),
+    linear-gradient(135deg, rgb(255 255 255 / 0.95) 0%, rgb(255 255 255 / 0.82) 100%);
+  border-color: color-mix(in srgb, var(--blue-700) 35%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.95),
+    0 24px 48px -22px color-mix(in srgb, var(--blue-700) 55%, transparent);
+}
+
+.person[data-patron="true"] .portrait,
+.person[data-patron="true"] .monogram {
+  width: 11rem;
+  height: 11rem;
+  box-shadow:
+    0 14px 32px -10px color-mix(in srgb, var(--blue-700) 55%, transparent),
+    inset 0 0 0 3px #ffffff,
+    inset 0 0 0 5px color-mix(in srgb, var(--blue-700) 55%, transparent);
+}
+
+.person[data-patron="true"] .monogram {
+  font-size: 2.6rem;
+}
+
+.person[data-patron="true"] .name {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  letter-spacing: var(--tracking-display);
+}
+
+.patronBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 var(--space-3);
+  padding: 0.3rem 0.85rem 0.3rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--blue-700) 95%, white),
+    color-mix(in srgb, var(--blue-700) 70%, white)
+  );
+  color: #ffffff;
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--blue-700) 65%, transparent);
+  width: fit-content;
+}
+
+.patronBadgeDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgb(255 255 255 / 0.9);
+  animation: group-dot 1.8s ease-in-out infinite;
+}
+
+@media (max-width: 48em) {
+  .person[data-patron="true"] {
+    padding-left: var(--space-5);
+    padding-top: 10rem;
+  }
+  .person[data-patron="true"] .portrait,
+  .person[data-patron="true"] .monogram {
+    width: 8rem;
+    height: 8rem;
+  }
 }
 
 @media (min-width: 48em) {
@@ -442,6 +540,15 @@
   font-weight: 600;
   letter-spacing: -0.005em;
   color: var(--color-ink);
+}
+
+.responsibilities {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line);
+  font-size: var(--text-xs);
+  line-height: 1.65;
+  color: var(--color-ink-muted);
 }
 
 @media (min-width: 48em) {

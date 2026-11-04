@@ -10,9 +10,32 @@ import { HeroNetwork } from "./HeroNetwork";
 import { HeroThemes } from "./HeroThemes";
 import styles from "./Hero.module.css";
 
-export function Hero() {
+type HeroEdition = "ruralconnect" | "comsoft";
+
+const EDITIONS: Record<
+  HeroEdition,
+  { eyebrow: string; titlePrimary: string; titleAccent: string; description: string }
+> = {
+  ruralconnect: {
+    eyebrow: "RuralConnect 2026",
+    titlePrimary: "National Workshop on Rural Communication Innovations",
+    titleAccent: "Empowering Underpriviledged Youth",
+    description:
+      "A two-day National Workshop on Rural Communication Innovations: Empowering Underprivileged Youth, for UG, PG, and PhD students — innovate, pitch, and compete on rural communication and connectivity.",
+  },
+  comsoft: {
+    eyebrow: "ComSoft Nexus 2026",
+    titlePrimary: "National Research, Mentorship, and Career Networking Forum",
+    titleAccent: "on Communications Software",
+    description:
+      "ComSoft Nexus 2026 is a two-day hybrid national research, mentorship, and career networking forum organized under the IEEE ComSoc TC on Communications Software. The initiative aims to connect students, researchers, faculty, and industry experts to foster research collaboration, mentorship, and PhD/postdoctoral career opportunities in emerging communications software technologies.",
+  },
+};
+
+export function Hero({ edition = "ruralconnect" }: { edition?: HeroEdition } = {}) {
   const { identity, dates, venue, ideathon, tracks } = event;
   const applyUrl = siteConfig.ideathonFormUrl;
+  const copy = EDITIONS[edition];
 
   return (
     <section id="top" className={styles.hero} aria-labelledby="hero-title">
@@ -39,14 +62,14 @@ export function Hero() {
       <div className={styles.inner}>
         <div className={styles.copy}>
           <p className={styles.eyebrow} aria-hidden="true">
-            {identity.name}
+            {copy.eyebrow}
           </p>
           <h1 id="hero-title" className={styles.title}>
-            <span className="visually-hidden">{identity.name}: </span>
-            <span className={styles.line}>National Workshop on Rural Communication Innovations</span>{" "}
-            <span className={`${styles.line} ${styles.accent}`}>Empowering Underpriviledged Youth</span>
+            <span className="visually-hidden">{copy.eyebrow}: </span>
+            <span className={styles.line}>{copy.titlePrimary}</span>{" "}
+            <span className={`${styles.line} ${styles.accent}`}>{copy.titleAccent}</span>
           </h1>
-          <p className={styles.lede}>{identity.description}</p>
+          <p className={styles.lede}>{copy.description}</p>
           <p className={styles.audience}>
             For UG, PG and PhD — innovate, pitch and compete across{" "}
             {tracks.length} challenge tracks.
@@ -185,7 +208,7 @@ export function Hero() {
 
         {dates.status === "confirmed" && (
           <CountdownTimer
-            targetDate="2026-11-03T23:59:00+05:30"
+            targetDate="2026-11-05T23:59:00+05:30"
             className={styles.timerRow}
           />
         )}
