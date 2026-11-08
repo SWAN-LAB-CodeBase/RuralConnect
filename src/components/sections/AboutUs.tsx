@@ -1,4 +1,5 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { stagger } from "@/lib/stagger";
 import styles from "./AboutUs.module.css";
 
@@ -30,6 +31,14 @@ export function AboutUs() {
           }
           lede="A two-day National Workshop convening students, researchers and industry around the networks that reach India's villages."
         />
+
+        <ButtonLink
+          href="https://swanlab.in"
+          external
+          className={styles.swanLink}
+        >
+          Visit SWAN LAB website
+        </ButtonLink>
 
         <ul className={styles.supporters} aria-label="Supporting organisations">
           {SUPPORTERS.map((s, i) => (

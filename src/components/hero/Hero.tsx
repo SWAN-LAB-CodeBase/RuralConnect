@@ -61,19 +61,21 @@ export function Hero({ edition = "ruralconnect" }: { edition?: HeroEdition } = {
 
       <div className={styles.inner}>
         <div className={styles.copy}>
-          <p className={styles.eyebrow} aria-hidden="true">
-            {copy.eyebrow}
-          </p>
-          <h1 id="hero-title" className={styles.title}>
-            <span className="visually-hidden">{copy.eyebrow}: </span>
-            <span className={styles.line}>{copy.titlePrimary}</span>{" "}
-            <span className={`${styles.line} ${styles.accent}`}>{copy.titleAccent}</span>
-          </h1>
-          <p className={styles.lede}>{copy.description}</p>
-          <p className={styles.audience}>
-            For UG, PG and PhD — innovate, pitch and compete across{" "}
-            {tracks.length} challenge tracks.
-          </p>
+          <div className={styles.introPanel}>
+            <p className={styles.eyebrow} aria-hidden="true">
+              {copy.eyebrow}
+            </p>
+            <h1 id="hero-title" className={styles.title}>
+              <span className="visually-hidden">{copy.eyebrow}: </span>
+              <span className={styles.line}>{copy.titlePrimary}</span>{" "}
+              <span className={`${styles.line} ${styles.accent}`}>{copy.titleAccent}</span>
+            </h1>
+            <p className={styles.lede}>{copy.description}</p>
+            <p className={styles.audience}>
+              For UG, PG and PhD — innovate, pitch and compete across{" "}
+              {tracks.length} challenge tracks.
+            </p>
+          </div>
           <p className={styles.ideaIntro}>
             Amongst an assortment of events to be hosted by the workshop, one of the highlights is
             the <strong>Ideathon</strong> where you can pitch your ideas catering to rural

@@ -73,61 +73,30 @@
     { "name": "Rajdeep Ghosh", "photo": "/images/people/rajdeep-ghosh.jpeg" }
   ],
   "team_members": {
-    "committees": [
-      {
-        "id": 1,
-        "name": "Website and Digital",
-        "lead": { "name": "Sampurna Dan" },
-        "members": ["Soujash Banerjee", "Rishikant Mallick", "Subhadeep Ghosh"]
-      },
-      {
-        "id": 2,
-        "name": "Venue and Logistics",
-        "lead": { "name": "Prolay Mallick" },
-        "members": ["Amit Mourya", "Shubham Dey", "Shilpi Rani", "Rupa Deka"]
-      },
-      {
-        "id": 3,
-        "name": "Guest and Student Hospitality",
-        "lead": { "name": "Arindom Aich" },
-        "members": ["Ashwini Roshan", "Abhijit Saha", "Tanupriya Ameta", "Sampurna Dan"]
-      },
-      {
-        "id": 4,
-        "name": "Ideathon",
-        "lead": { "name": "Jishan Aich" },
-        "members": ["Ashwini Roshan", "Singarapu Pawan Kumar", "Amit Mourya"]
-      },
-      {
-        "id": 5,
-        "name": "Food",
-        "lead": { "name": "Aparesh Mahapatra" },
-        "members": ["Diotima Nag", "Shubham Kumar", "Indumouli Nandy"]
-      },
-      {
-        "id": 6,
-        "name": "Speakers, Tutorials and Program",
-        "lead": { "name": "Diotima Nag" },
-        "members": ["Shilpi Rani", "Rupa Deka", "Paromita Nag"]
-      },
-      {
-        "id": 7,
-        "name": "Event Registration Management",
-        "lead": { "name": "Rukhshar Khatun" },
-        "members": ["Jahir Alam", "Abhijit Saha", "Subhadeep Ghosh"]
-      },
-      {
-        "id": 8,
-        "name": "Award, Jury and Documentation",
-        "lead": { "name": "Soujash Banerjee" },
-        "members": ["Rupa Deka", "Tanupriya Ameta", "Saharsh Gupta"]
-      },
-      {
-        "id": 9,
-        "name": "Photography and Videography",
-        "lead": { "name": "Shubham Kumar" },
-        "members": ["Jahir Alam", "Rishikant Mallick"]
-      }
+    "volunteers": [
+      { "name": "Sampurna Dan", "accent": true },
+      { "name": "Prolay Mallick", "accent": true },
+      { "name": "Arindom Aich", "accent": true },
+      { "name": "Jishan Aich", "accent": true },
+      { "name": "Aparesh Mahapatra", "accent": true },
+      { "name": "Diotima Nag", "accent": true },
+      { "name": "Rukhshar Khatun", "accent": true },
+      { "name": "Soujash Banerjee", "accent": true },
+      { "name": "Shubham Kumar", "accent": true },
+      { "name": "Rishikant Mallick" },
+      { "name": "Subhadeep Ghosh" },
+      { "name": "Amit Mourya" },
+      { "name": "Shubham Dey" },
+      { "name": "Shilpi Rani" },
+      { "name": "Rupa Deka" },
+      { "name": "Ashwini R Singh" },
+      { "name": "Abhijit Saha" },
+      { "name": "Tanupriya Ameta" },
+      { "name": "Singarapu Pawan Kumar" },
+      { "name": "Indumouli Nandy" },
+      { "name": "Paromita Nag" },
+      { "name": "Jahir Alam" },
+      { "name": "Saharsh Gupta" }
     ]
   }
 }

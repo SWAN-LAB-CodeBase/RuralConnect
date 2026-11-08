@@ -4,16 +4,7 @@ import { stagger } from "@/lib/stagger";
 import committee from "@/assets/event_organising_committees.json";
 import styles from "./Organisers.module.css";
 
-type Lead = { name: string; annotation?: string; transcription_note?: string };
-type Subgroup = { name: string; lead?: Lead; members: readonly string[] };
-type Committee = {
-  id: number;
-  name: string;
-  lead?: Lead;
-  members?: readonly string[];
-  subgroups?: readonly Subgroup[];
-
-};
+type Volunteer = { name: string; accent?: boolean };
 type Affiliation = { position: string; institution: string };
 
 export function Organisers() {
@@ -28,7 +19,7 @@ export function Organisers() {
     name: string;
     photo?: string;
   }[];
-  const committees = committee.team_members.committees as readonly Committee[];
+  const volunteers = committee.team_members.volunteers as readonly Volunteer[];
 
   return (
     <section id="organisers" className={styles.section} aria-labelledby="organisers-title">
@@ -83,7 +74,7 @@ export function Organisers() {
                 <p className={styles.role}>{person.role}</p>
                 {isPatron ? (
                   <a
-                    href="https://www.swanlab.in"
+                    href="https://cse.iitkgp.ac.in/~smisra/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.nameLink}
@@ -148,68 +139,24 @@ export function Organisers() {
           ))}
         </ul>
 
-        {/* ── Team Members (committees) ─────────────────── */}
+        {/* ── Volunteers ────────────────────────────────── */}
         <GroupHeader
-          tag="Team Members"
-          title="The committees behind the event"
-          lede="Six working groups make RuralConnect 2026 happen — from the website you are reading now to venue, speakers, registration and awards."
+          tag="Volunteers"
+          title="The people making it happen"
+          lede="RuralConnect 2026 runs on the energy of its volunteers — the hands behind the venue, the website, the sessions, the hospitality and everything in between."
           tone="amber"
         />
-        <ul className={styles.committees} aria-label="Team committees">
-          {committees.map((c, i) => (
+        <ul className={styles.volunteers} aria-label="Volunteers">
+          {volunteers.map((v, i) => (
             <li
-              key={c.id}
-              className={styles.committee}
-              data-reveal={i % 2 === 0 ? "left" : "right"}
+              key={v.name}
+              className={styles.volunteer}
+              data-accent={v.accent ? "true" : undefined}
+              data-reveal="scale"
               style={stagger(i)}
             >
-              <div className={styles.committeeHead}>
-                <span className={styles.committeeIndex} aria-hidden="true">
-                  {String(c.id).padStart(2, "0")}
-                </span>
-                <h3 className={styles.committeeTitle}>{c.name}</h3>
-              </div>
-
-              {c.subgroups ? (
-                <ul className={styles.subgroups}>
-                  {c.subgroups.map((sg) => (
-                    <li key={sg.name} className={styles.subgroup}>
-                      <p className={styles.subgroupName}>{sg.name}</p>
-                      {sg.lead && (
-                        <p className={styles.lead}>
-                          <span className={styles.leadLabel}>Lead</span>
-                          <span className={styles.leadName}>{sg.lead.name}</span>
-                        </p>
-                      )}
-                      <ul className={styles.members}>
-                        {sg.members.map((m) => (
-                          <li key={m} className={styles.member}>
-                            {m}
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <>
-                  {c.lead && (
-                    <p className={styles.lead}>
-                      <span className={styles.leadLabel}>Lead</span>
-                      <span className={styles.leadName}>{c.lead.name}</span>
-                    </p>
-                  )}
-                  {c.members && (
-                    <ul className={styles.members}>
-                      {c.members.map((m) => (
-                        <li key={m} className={styles.member}>
-                          {m}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-</>
-              )}
+              <span className={styles.volunteerDot} aria-hidden="true" />
+              <span className={styles.volunteerName}>{v.name}</span>
             </li>
           ))}
         </ul>
