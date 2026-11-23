@@ -45,6 +45,38 @@
   box-shadow: var(--glass-highlight), var(--shadow-md);
 }
 
+/* ── Host institute logo ─────────────────────────────────── */
+
+.hostLogo {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  padding-right: var(--space-3);
+  border-right: 1px solid color-mix(in srgb, var(--color-ink) 15%, transparent);
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.hostLogo:hover {
+  opacity: 0.75;
+}
+
+.hostLogoImg {
+  display: block;
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 24em) {
+  .hostLogo {
+    padding-right: var(--space-2);
+  }
+  .hostLogoImg {
+    height: 30px;
+    width: auto;
+  }
+}
+
 /* ── Event switcher (logo-based) ────────────────────────── */
 
 .eventSwitcher {

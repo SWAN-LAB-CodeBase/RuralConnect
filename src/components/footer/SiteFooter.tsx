@@ -24,6 +24,20 @@ export function SiteFooter({ nav }: { nav: readonly NavItem[] }) {
       <div className={styles.inner}>
         <div className={styles.identity} data-reveal>
           <div className={styles.brandLogos}>
+            <a
+              href="https://www.iitkgp.ac.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="IIT Kharagpur (opens in a new tab)"
+            >
+              <Image
+                src="/images/iitkgp-logo.png"
+                alt="IIT Kharagpur"
+                height={320}
+                width={286}
+                className={`${styles.footerLogo} ${styles.footerLogoSquare}`}
+              />
+            </a>
             <a href="/" aria-label="RuralConnect 2026">
               <Image
                 src="/images/ruralconnect-logo.png"

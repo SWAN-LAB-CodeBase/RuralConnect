@@ -79,6 +79,22 @@ export function SiteHeader({ nav, edition = "ruralconnect" }: SiteHeaderProps) {
         data-open={open || undefined}
       >
         <div className={styles.bar}>
+          <a
+            href="https://www.iitkgp.ac.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.hostLogo}
+            aria-label="IIT Kharagpur (opens in a new tab)"
+          >
+            <Image
+              src="/images/iitkgp-logo.png"
+              alt="IIT Kharagpur"
+              height={320}
+              width={286}
+              priority
+              className={styles.hostLogoImg}
+            />
+          </a>
           <div className={styles.eventSwitcher} aria-label="Event switcher">
             <a
               href={edition === "ruralconnect" ? "#top" : "/"}

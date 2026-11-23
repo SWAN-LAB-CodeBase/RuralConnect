@@ -47,6 +47,11 @@
   max-width: 259px;
 }
 
+.footerLogoSquare {
+  height: 80px;
+  width: auto;
+}
+
 .theme {
   max-width: 24rem;
   margin-top: var(--space-4);
